@@ -17,7 +17,6 @@ interface Igame {
 const Home = () => {
 	const [games, setgames] = useState<Igame[]>([])
 	const [isLoading, setIsLoading] = useState(true)
-	const [currentPage, setCurrentPage] = useState(1)
 	const [filters, setFilters] = useState({
 		categoryName: 0,
 		orderType: 'asc',
@@ -57,7 +56,7 @@ const Home = () => {
 
 		fetchData()
 		window.scrollTo(0, 0)
-	}, [filters, searchValue, currentPage])
+	}, [filters, searchValue])
 
 	const handleCategoryClick = (item: number) => {
 		setFilters(prevFilters => ({
