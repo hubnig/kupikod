@@ -1,0 +1,40 @@
+.root {
+	position: relative;
+}
+.search {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+	padding: 10px 50px;
+	width: 350px;
+	font-size: 16px;
+	transition: all 0.15s ease-in-out;
+	&:focus {
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		width: 400px;
+	}
+}
+.iconDel {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	opacity: 0.3;
+	&:hover {
+		opacity: 0.7;
+		cursor: pointer;
+	}
+}
+
+.iconSer{
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	path {
+		stroke: rgba(0, 0, 0, 0.3);
+	}
+}
