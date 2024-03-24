@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 interface Props {
 	price: number
@@ -8,7 +8,7 @@ interface Props {
 	types: number[]
 }
 
-const PizzaBlock: React.FC<Props> = ({
+const GameBlock: React.FC<Props> = ({
 	price,
 	title,
 	imageUrl,
@@ -22,14 +22,12 @@ const PizzaBlock: React.FC<Props> = ({
 		setCount(prev => prev + 1)
 	}
 
-
-
 	return (
-		<div className='pizza-block-wrapper'>
-			<div className='pizza-block'>
-				<img className='pizza-block__image' src={imageUrl} alt='Pizza' />
-				<h4 className='pizza-block__title'>{title}</h4>
-				<div className='pizza-block__selector'>
+		<div className='game-block-wrapper'>
+			<div className='game-block'>
+				<img className='game-block__image' src={imageUrl} alt='game' />
+				<h4 className='game-block__title'>{title}</h4>
+				<div className='game-block__selector'>
 					<ul>
 						{types.map((type, index) => (
 							<li
@@ -42,8 +40,8 @@ const PizzaBlock: React.FC<Props> = ({
 						))}
 					</ul>
 				</div>
-				<div className='pizza-block__bottom'>
-					<div className='pizza-block__price'>от {price} ₽</div>
+				<div className='game-block__bottom'>
+					<div className='game-block__price'>от {price} ₽</div>
 					<button
 						className='button button--outline button--add'
 						onClick={handleClick}
@@ -69,4 +67,4 @@ const PizzaBlock: React.FC<Props> = ({
 	)
 }
 
-export default PizzaBlock
+export default GameBlock

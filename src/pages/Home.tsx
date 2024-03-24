@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
-
-import Categories from '@/components/Categories'
-import PizzaBlock from '@/components/PizzaBlock'
-import { Skeleton } from '@/components/PizzaBlock/Skeleton'
-import Sort from '@/components/Sort'
+import GameBlock from '@/components/GameBlock'
 import { SearchContext } from '@/App'
+import Categories from '@/components/Categories'
+import Sort from '@/components/Sort'
+import { Skeleton } from '@/components/GameBlock/Skeleton'
 
-interface IPizza {
+interface Igame {
 	id: number
 	title: string
 	price: number
@@ -16,7 +15,7 @@ interface IPizza {
 }
 
 const Home = () => {
-	const [pizzas, setPizzas] = useState<IPizza[]>([])
+	const [games, setgames] = useState<Igame[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [currentPage, setCurrentPage] = useState(1)
 	const [filters, setFilters] = useState({
@@ -42,12 +41,12 @@ const Home = () => {
 				const response = await fetch(
 					`https://636524e2f711cb49d1f662c6.mockapi.io/items?${categoryQuery}&sortBy=${sortType.sortProperty}&order=${orderType}${searchQuery}`,
 				)
-				const pizzasData = await response.json()
+				const gamesData = await response.json()
 				//TODO: переделать следующие 4 строчки
-				if (pizzasData === 'Not found') {
-					setPizzas([])
+				if (gamesData === 'Not found') {
+					setgames([])
 				} else {
-					setPizzas(pizzasData)
+					setgames(gamesData)
 				}
 				setIsLoading(false)
 			} catch (error) {
@@ -110,8 +109,8 @@ const Home = () => {
 				<>
 					<h2 className='content__title'>Все игры:</h2>
 					<div className='content__items'>
-						{pizzas.map(obj => (
-							<PizzaBlock key={obj.id} {...obj} />
+						{games.map(obj => (
+							<GameBlock key={obj.id} {...obj} />
 						))}
 					</div>
 				</>

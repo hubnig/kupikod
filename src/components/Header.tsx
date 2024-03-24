@@ -1,27 +1,24 @@
-import pizzaLogo from '@assets/logo.png'
+import gameLogo from '@assets/logo.png'
 import { Link } from 'react-router-dom'
 import Search from './Search'
-
 
 const Header = () => {
 	return (
 		<div className='header'>
 			<div className='container'>
 				<div className='header__logo'>
-					<img width='38' src={pizzaLogo} alt='Pizza logo' />
+					<img width='38' src={gameLogo} alt='game logo' />
 					<Link to='/'>
 						<div className='header__description'>
 							<h1 className='header__title'>kupikod</h1>
-							<p className='header__subtitle'>
-								всё для геймера и нуба
-							</p>
+							<p className='header__subtitle'>всё для геймера и нуба</p>
 						</div>
 					</Link>
 				</div>
 				<Search />
 				<div className='header__cart'>
 					<Link to='/cart' className='button button--cart'>
-						<span>520&nbsp;₽</span>
+						<span>877&nbsp;₽</span>
 						<div className='button__delimiter'></div>
 						<svg
 							width='18'
